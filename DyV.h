@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-template <typename T> int busquedaBinaria(T X, const std::vector<T>& V, int ini, int fin) {
+template <typename T> int busquedaBinaria(std::vector<T>& V, int ini, int fin, T X) {
     if (ini > fin) {
         return -1; // No se encuentra en el array
     }
@@ -9,9 +9,9 @@ template <typename T> int busquedaBinaria(T X, const std::vector<T>& V, int ini,
     if (V[medio] == X) {
         return medio;
     } else if (V[medio] > X) {
-        return busquedaBinaria(X, V, ini, medio - 1);
+        return busquedaBinaria(V, ini, medio - 1, X);
     } else {
-        return busquedaBinaria(X, V, medio + 1, fin);
+        return busquedaBinaria(V, medio + 1, fin, X);
     }
 }
 template <typename T> int busquedaBinaria_INV(std::vector<T>& V, int ini, int fin, T x){
